@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site", "Site\Site.csproj", "{1F104F1F-E6C7-4FF7-9080-42CBE768DDC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site.Tests", "Site.Tests\Site.Tests.csproj", "{ADA71080-353A-4A11-84D8-C7B0711B0C62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F104F1F-E6C7-4FF7-9080-42CBE768DDC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F104F1F-E6C7-4FF7-9080-42CBE768DDC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F104F1F-E6C7-4FF7-9080-42CBE768DDC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F104F1F-E6C7-4FF7-9080-42CBE768DDC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA71080-353A-4A11-84D8-C7B0711B0C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA71080-353A-4A11-84D8-C7B0711B0C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA71080-353A-4A11-84D8-C7B0711B0C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA71080-353A-4A11-84D8-C7B0711B0C62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
