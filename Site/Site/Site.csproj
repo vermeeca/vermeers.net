@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -82,6 +83,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\img01.gif" />
+    <Content Include="Content\images\img02.gif" />
+    <Content Include="Content\images\img03.gif" />
+    <Content Include="Content\images\img04.gif" />
+    <Content Include="Content\images\img05.gif" />
+    <Content Include="Content\images\img06.gif" />
+    <Content Include="Content\images\img07.gif" />
+    <Content Include="Content\images\img08.gif" />
+    <Content Include="Content\images\spacer.gif" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
