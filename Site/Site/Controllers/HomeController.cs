@@ -13,7 +13,7 @@ namespace Site.Controllers
         {
             ViewData["Message"] = "Welcome to ASP.NET MVC!";
 
-            return View();
+            return this.RedirectToAction("Index", "Blog");
         }
 
         public ActionResult About()

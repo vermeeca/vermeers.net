@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -107,6 +108,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Views\Blog\Index.spark" />
     <None Include="Views\Home\Index.spark" />
     <None Include="Views\Layouts\Application.spark" />
     <None Include="Views\Shared\_global.spark" />
