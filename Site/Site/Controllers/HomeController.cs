@@ -11,8 +11,6 @@ namespace Site.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
-
             return this.RedirectToAction("Index", "Blog");
         }
 

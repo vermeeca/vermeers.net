@@ -3,8 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Gallio.Framework;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Site;
 using Site.Controllers;
 
@@ -23,12 +22,12 @@ namespace Site.Tests.Controllers
             HomeController controller = new HomeController();
 
             // Execute
-            ViewResult result = controller.Index() as ViewResult;
+            RedirectToRouteResult result = controller.Index() as RedirectToRouteResult;
 
-            // Verify
-            ViewDataDictionary viewData = result.ViewData;
+            Assert.AreEqual("Blog", result.RouteValues["controller"]);
+            Assert.AreEqual("Index", result.RouteValues["action"]);
 
-            Assert.AreEqual("Welcome to ASP.NET MVC!", viewData["Message"]);
+           
         }
     }
 }
