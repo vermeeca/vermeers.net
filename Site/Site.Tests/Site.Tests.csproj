@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.5.0.9122, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -72,6 +76,7 @@
   <ItemGroup>
     <Compile Include="base_test.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Models\BlogRepository\when_creating_blogrepository.cs" />
     <Compile Include="Models\Blog\when_creating_blogentry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="specextensions.cs" />
@@ -98,6 +103,11 @@
       <Project>{1F104F1F-E6C7-4FF7-9080-42CBE768DDC4}</Project>
       <Name>Site</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sqlite3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

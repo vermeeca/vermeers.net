@@ -13,15 +13,45 @@ namespace Site.Tests.Models.Blog
 
         private BlogEntry entry = null;
 
+        private string content = "content";
+        private string author = "author";
+        private DateTime publicationDate = DateTime.Now;
+        private string title = "titie";
+
+
         protected override void because()
         {
-            entry = new BlogEntry();
+            entry = new BlogEntry{Content=content, Author=author, PublicationDate=publicationDate, Title=title};
         }
 
         [Test]
         public void should_create_entry()
         {
             entry.ShouldNotBeNull();
+        }
+
+        [Test]
+        public void should_have_content()
+        {
+            Assert.AreEqual(content, entry.Content);
+        }
+
+        [Test]
+        public void should_have_author()
+        {
+            Assert.AreEqual(author, entry.Author);
+        }
+
+        [Test]
+        public void should_have_title()
+        {
+            Assert.AreEqual(title, entry.Title);
+        }
+
+        [Test]
+        public void should_have_publicationdate()
+        {
+            entry.PublicationDate.ShouldEqual(publicationDate);
         }
     }
 }
