@@ -1,6 +1,6 @@
 using System;
 
-namespace Site.Models
+namespace Site.Model.Entities
 {
     public class BlogEntry
     {

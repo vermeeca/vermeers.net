@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Site.Models;
+using Site.Model;
 
 namespace Site.Tests.Models.BlogRepository
 {
@@ -14,7 +14,7 @@ namespace Site.Tests.Models.BlogRepository
 
         protected override void because()
         {
-            repo = new BlogEntryRepository();
+            repo = new BlogEntryRepository(null);
         }
 
         [Test]
