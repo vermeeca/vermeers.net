@@ -99,11 +99,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\Configuration.cs" />
     <Compile Include="Model\Entities\BlogEntry.cs" />
     <Compile Include="Model\BlogEntryRepository.cs" />
     <Compile Include="Model\Entities\Foo.cs" />
-    <Compile Include="Model\IMappingConfig.cs" />
-    <Compile Include="Model\MappingConfig.cs" />
+    <Compile Include="Model\IConfigurationSettings.cs" />
+    <Compile Include="Model\ConfigurationSettings.cs" />
     <Compile Include="Model\RepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

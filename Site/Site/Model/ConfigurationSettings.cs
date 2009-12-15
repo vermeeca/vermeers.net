@@ -6,7 +6,7 @@ using Site.Model.Entities;
 
 namespace Site.Model
 {
-    public class MappingConfig : IMappingConfig
+    public class ConfigurationSettings : IConfigurationSettings
     {
 
 
@@ -18,16 +18,7 @@ namespace Site.Model
         {
             get
             {
-                if(_persistenceConfig == null)
-                {
-                    _persistenceConfig = SQLiteConfiguration.Standard.UsingFile("site.db");
-                }
-
-                return _persistenceConfig;
-            }
-            set
-            {
-                _persistenceConfig = value;
+                return SQLiteConfiguration.Standard.UsingFile("site.db");
             }
         }
 
@@ -36,11 +27,6 @@ namespace Site.Model
             get { return Map; }
         }
 
-        public FluentConfiguration GetConfiguration()
-        {
-            return Fluently.Configure()
-                .Database(PersistenceConfig)
-                .Mappings(m => m.AutoMappings.Add(Mapping));
-        }
+       
     }
 }

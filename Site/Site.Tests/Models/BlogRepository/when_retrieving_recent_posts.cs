@@ -10,6 +10,7 @@ using NHibernate;
 using NHibernate.Dialect;
 using NHibernate.Tool.hbm2ddl;
 using NUnit.Framework;
+using Rhino.Mocks;
 using Site.Model;
 using Site.Model.Entities;
 using Site.Model;
@@ -28,12 +29,13 @@ namespace Site.Tests.Models.BlogRepository
 
         protected override void establish_context()
         {
-            var mc = new MappingConfig();
-            mc.PersistenceConfig = SQLiteConfiguration.Standard.InMemory();
+            var settings = MockRepository.GenerateStub<IConfigurationSettings>();
+            settings.Stub(s => s.PersistenceConfig).Return(SQLiteConfiguration.Standard.InMemory());
+            settings.Stub(s => s.Mapping).Return(ConfigurationSettings.Map);
 
-            var config = mc.GetConfiguration();
-            session = config.BuildSessionFactory().OpenSession();
-            new SchemaExport(config.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);    
+            var config = new Configuration(settings).Configure();
+            session = config.OpenSession();
+            new SchemaExport(config.FluentConfiguration.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);    
           
             repo = new BlogEntryRepository(session);
 

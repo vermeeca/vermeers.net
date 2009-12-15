@@ -1,8 +1,10 @@
-﻿<div class="post">
-	<h2 class="title"><a href="#">Hello   </a></h2>
-	<p class="meta"><span class="date">September 10, 2009</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
-	<div style="clear: both;">&nbsp;</div>
-	<div class="entry">
-		<p>Hello world!</p>
-	</div>
-</div>
+﻿<for each="var entry in Model">
+  <div class="post">
+	  <h2 class="title"><a href="#">Hello   </a></h2>
+	  <p class="meta"><span class="date">September 10, 2009</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
+	  <div style="clear: both;">&nbsp;</div>
+	  <div class="entry">
+		  <p>Hello world!</p>
+	  </div>
+  </div>
+</for>
