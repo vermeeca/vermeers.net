@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using FluentNHibernate.Cfg;
 using NHibernate;
 
@@ -23,7 +24,14 @@ namespace Site.Model
                 .Database(_settings.PersistenceConfig)
                 .Mappings(m => m.AutoMappings.Add(_settings.Mapping));
 
-            _sessionFactory = FluentConfiguration.BuildSessionFactory();
+            try
+            {
+                _sessionFactory = FluentConfiguration.BuildSessionFactory();
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
 
             return this;
         

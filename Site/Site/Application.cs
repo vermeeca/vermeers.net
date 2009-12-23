@@ -29,6 +29,7 @@ namespace Site
                 new MvcRouteHandler()));
         }
 
+
         public void RegisterViewEngines(ICollection<IViewEngine> engines)
         {
             if (engines == null) throw new ArgumentNullException("engines");
