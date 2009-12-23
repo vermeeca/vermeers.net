@@ -26,6 +26,7 @@ namespace Site.Controllers
 
         public ActionResult Index()
         {
+            ViewData["Entries"] = _repository.GetRecentEntries();
             return View();
         }
     }

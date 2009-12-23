@@ -24,7 +24,7 @@ namespace Site.Tests.Models.BlogRepository
         private BlogEntryRepository repo = null;
         private ISession session;
 
-        private IQueryable<BlogEntry> entries;
+        private IEnumerable<BlogEntry> entries;
 
 
         protected override void establish_context()

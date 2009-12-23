@@ -17,9 +17,9 @@ namespace Site.Model
 
         }
 
-        public IQueryable<BlogEntry> GetRecentEntries()
+        public IEnumerable<BlogEntry> GetRecentEntries()
         {
-            return (from b in Session.Linq<BlogEntry>()
+            return (from b in new[]{new BlogEntry{Author="Blah", Content="Blah", PublicationDate=DateTime.Now, Title="Title"}}
                     orderby b.PublicationDate descending
                     select b).Take(10);
         }
