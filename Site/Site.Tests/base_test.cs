@@ -6,6 +6,7 @@ namespace Site.Tests
     /// <summary>
     /// Taken from Leonard Smith: http://github.com/ignu/specish/tree/master/Specish/
     /// </summary>
+    [TestFixture]
     public class base_test
     {
         [TestFixtureSetUp]

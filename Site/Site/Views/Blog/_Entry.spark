@@ -1,0 +1,15 @@
+﻿<div class="post">
+  <h2 class="title">
+    <a href="#">${entry.Title}</a>
+  </h2>
+  <p class="meta">
+    <span class="date">${entry.PublicationDate}</span>
+    <span class="posted">
+      Posted by <a href="#">${entry.Author}</a>
+    </span>
+  </p>
+  <div style="clear: both;">&nbsp;</div>
+  <div class="entry">
+    <p>${entry.Content}</p>
+  </div>
+</div>

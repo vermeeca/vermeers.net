@@ -19,10 +19,12 @@ namespace Site.Model
 
         public IEnumerable<BlogEntry> GetRecentEntries()
         {
-            return (from b in new[]{new BlogEntry{Author="Blah", Content="Blah", PublicationDate=DateTime.Now, Title="Title"}}
+            return (from b in Session.Linq<BlogEntry>()
                     orderby b.PublicationDate descending
                     select b).Take(10);
         }
+
+        
 
         public void Insert(BlogEntry entry)
         {
@@ -30,6 +32,9 @@ namespace Site.Model
         }
 
 
-
+        public BlogEntry GetEntryById(int id)
+        {
+            return Session.Get<BlogEntry>(id);
+        }
     }
 }

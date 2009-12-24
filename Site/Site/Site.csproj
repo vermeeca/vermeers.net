@@ -131,6 +131,7 @@
     <Content Include="Content\images\spacer.gif" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <None Include="Views\Blog\_Entry.spark" />
     <Content Include="Web.config" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.3.2.js" />

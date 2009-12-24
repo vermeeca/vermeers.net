@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using FluentNHibernate.Cfg;
 using NHibernate;
+using NHibernate.Tool.hbm2ddl;
 
 namespace Site.Model
 {
@@ -24,17 +25,20 @@ namespace Site.Model
                 .Database(_settings.PersistenceConfig)
                 .Mappings(m => m.AutoMappings.Add(_settings.Mapping));
 
-            try
-            {
-                _sessionFactory = FluentConfiguration.BuildSessionFactory();
-            }
-            catch(Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
+            
+            _sessionFactory = FluentConfiguration.BuildSessionFactory();
+            
 
             return this;
         
+        }
+
+        public void EnsureDatabaseCreated()
+        {
+            using(var session = OpenSession())
+            {
+                new SchemaExport(FluentConfiguration.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);
+            }
         }
 
         public ISession OpenSession()

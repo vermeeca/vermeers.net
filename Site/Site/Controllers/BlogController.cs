@@ -29,5 +29,7 @@ namespace Site.Controllers
             ViewData["Entries"] = _repository.GetRecentEntries();
             return View();
         }
+
+
     }
 }
