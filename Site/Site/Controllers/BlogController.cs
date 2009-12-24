@@ -30,6 +30,13 @@ namespace Site.Controllers
             return View();
         }
 
+        public ActionResult Entry(int id)
+        {
+            ViewData["entry"] = _repository.GetEntryById(id);
+            return View();
+        }
+
+
 
     }
 }
