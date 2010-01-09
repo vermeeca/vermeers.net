@@ -1,5 +1,10 @@
 ﻿using System;
+using FluentNHibernate.Cfg.Db;
+using NHibernate;
+using NHibernate.Tool.hbm2ddl;
 using NUnit.Framework;
+using Rhino.Mocks;
+using Site.Model;
 
 namespace Site.Tests
 {
@@ -9,6 +14,11 @@ namespace Site.Tests
     [TestFixture]
     public class base_test
     {
+
+        protected IConfigurationSettings configSettings;
+        protected Configuration config;
+        protected ISession session;
+
         [TestFixtureSetUp]
         public void TestFixtureSetup()
         {
@@ -20,7 +30,19 @@ namespace Site.Tests
         /// Set up infrastructure.
         /// In AAA syntax, this is Arrange
         /// </summary>
-        protected virtual void establish_context() { }
+        protected virtual void establish_context()
+        {
+            configSettings = MockRepository.GenerateStub<IConfigurationSettings>();
+            //settings.Stub(s => s.PersistenceConfig).Return(SQLiteConfiguration.Standard.UsingFile("site.db"));
+            configSettings.Stub(s => s.PersistenceConfig).Return(SQLiteConfiguration.Standard.InMemory());
+            configSettings.Stub(s => s.Mapping).Return(ConfigurationSettings.Map);
+
+            config = new Configuration(configSettings).Configure();
+
+            session = config.OpenSession();
+            new SchemaExport(config.FluentConfiguration.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);
+
+        }
 
         /// <summary>
         /// This is why we the asserts are true.  

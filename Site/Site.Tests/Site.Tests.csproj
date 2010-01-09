@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ADA71080-353A-4A11-84D8-C7B0711B0C62}</ProjectGuid>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -102,7 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="base_test.cs" />
+    <Compile Include="Controllers\controller_test.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Controllers\when_viewing_blogindex.cs" />
     <Compile Include="Models\BlogRepository\blogrepository_test.cs" />
     <Compile Include="Models\BlogRepository\when_creating_blogrepository.cs" />
     <Compile Include="Models\BlogRepository\when_retrieving_by_id.cs" />

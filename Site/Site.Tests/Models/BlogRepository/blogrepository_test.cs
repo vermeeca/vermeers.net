@@ -15,23 +15,13 @@ namespace Site.Tests.Models.BlogRepository
     {
 
         protected BlogEntryRepository repo = null;
-        protected ISession session;
 
         protected List<BlogEntry> ExpectedEntries = new List<BlogEntry>();
 
         protected override void establish_context()
         {
-            var settings = MockRepository.GenerateStub<IConfigurationSettings>();
-            settings.Stub(s => s.PersistenceConfig).Return(SQLiteConfiguration.Standard.InMemory());
-            settings.Stub(s => s.Mapping).Return(ConfigurationSettings.Map);
-
-            var config = new Configuration(settings).Configure();
-            session = config.OpenSession();
-            new SchemaExport(config.FluentConfiguration.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);
-
-            repo = new BlogEntryRepository(session);
-
-            
+            base.establish_context();
+            repo = new BlogEntryRepository(session);          
 
             ExpectedEntries.Add(new BlogEntry
             {
