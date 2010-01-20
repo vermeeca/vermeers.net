@@ -26,7 +26,7 @@ namespace Site.Controllers
 
         public ActionResult Index()
         {
-            ViewData["Entries"] = _repository.GetRecentEntries();
+            ViewData["entries"] = _repository.GetRecentEntries();
             return View();
         }
 
@@ -36,6 +36,11 @@ namespace Site.Controllers
             return View();
         }
 
+        public ActionResult Author(string name)
+        {
+            ViewData["entries"] = _repository.GetAll().Where(e => e.Author == name);
+            return View();
+        }
 
 
     }

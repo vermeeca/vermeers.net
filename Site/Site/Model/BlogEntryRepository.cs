@@ -17,14 +17,19 @@ namespace Site.Model
 
         }
 
-        public IEnumerable<BlogEntry> GetRecentEntries()
+        public IQueryable<BlogEntry> GetRecentEntries()
         {
             return (from b in Session.Linq<BlogEntry>()
                     orderby b.PublicationDate descending
                     select b).Take(10);
         }
 
-        
+        public IQueryable<BlogEntry> GetAll()
+        {
+            return Session.Linq<BlogEntry>();
+        }
+
+
 
         public void Insert(BlogEntry entry)
         {
