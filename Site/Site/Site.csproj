@@ -118,6 +118,8 @@
     <Compile Include="Model\ConfigurationSettings.cs" />
     <Compile Include="Model\RepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\SQLiteMembershipProvider.cs" />
+    <Compile Include="Utilities\SQLiteRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\img01.gif" />
@@ -132,6 +134,10 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <None Include="Views\Blog\_Entry.spark" />
+    <Content Include="Views\Account\ChangePassword.spark" />
+    <Content Include="Views\Account\ChangePasswordSuccess.spark" />
+    <Content Include="Views\Account\LogOn.spark" />
+    <Content Include="Views\Account\Register.spark" />
     <Content Include="Web.config" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.3.2.js" />

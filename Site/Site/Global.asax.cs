@@ -75,6 +75,8 @@ namespace Site
                 //ISession maps to the OpenSession() method on the configuration class
                 Bind<ISession>().ToMethod(c => c.Kernel.Get<Site.Model.Configuration>().OpenSession());
 
+                
+
                
             }
         }
