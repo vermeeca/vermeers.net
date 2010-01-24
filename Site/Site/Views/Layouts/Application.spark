@@ -22,8 +22,8 @@ Released   : 20091106
 <div id="wrapper">
 	<div id="menu">
 		<ul>
-			<li class="current_page_item"><a href="#">Home</a></li>
-			<li><a href="#">Blog</a></li>
+			<li class="current_page_item">${Html.ActionLink("Home", "Index", "Home")}</li>
+			<li>${Html.ActionLink("Blog", "Index", "Blog")}</li>
 			<li><a href="#">Photos</a></li>
 			<li><a href="#">About</a></li>
 			<li><a href="#">Links</a></li>
@@ -33,7 +33,7 @@ Released   : 20091106
 	<!-- end #menu -->
 	<div id="header">
 		<div id="logo">
-			<h1><a href="#">Vermeer </a></h1>
+			<h1>${Html.ActionLink("Vermeer", "Index", "Home")}</h1>
 			<p>family</p>
 		</div>
 	</div>
@@ -65,15 +65,11 @@ Released   : 20091106
 				<li>
 					<h2>Categories</h2>
 					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
+						<li><a href="#">Here would be a category</a></li>
+						<li><a href="#">Here would be another category</a></li>
 					</ul>
 				</li>
-				<li>
+				<!--<li>
 					<h2>Blogroll</h2>
 					<ul>
 						<li><a href="#">Aliquam libero</a></li>
@@ -83,16 +79,11 @@ Released   : 20091106
 						<li><a href="#">Urnanet non molestie semper</a></li>
 						<li><a href="#">Proin gravida orci porttitor</a></li>
 					</ul>
-				</li>
+				</li>-->
 				<li>
 					<h2>Archives</h2>
 					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
+						<li><a href="#">Here we'll have archives by date</a></li>
 					</ul>
 				</li>
 			</ul>
