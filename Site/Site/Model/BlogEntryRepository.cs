@@ -29,7 +29,10 @@ namespace Site.Model
             return Session.Linq<BlogEntry>();
         }
 
-
+        public BlogEntry Create()
+        {
+            return new BlogEntry();
+        }
 
         public void Insert(BlogEntry entry)
         {

@@ -1,0 +1,13 @@
+﻿<viewdata entry="Site.Model.Entities.BlogEntry"/>
+<div class="newpost">
+	# Html.BeginForm();
+	<p>Title</p>
+	<p class="title">${Html.TextBox("Title")}</p>
+	<p>Content</p>
+	<div>
+	${Html.TextArea("Content")}
+	</div>
+	<input type="submit" value="Create"/>
+	# Html.EndForm();
+	
+</div>

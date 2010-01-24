@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Blog\Author.spark" />
+    <None Include="Views\Blog\Create.spark" />
     <None Include="Views\Blog\Entry.spark" />
     <None Include="Views\Blog\Index.spark" />
     <None Include="Views\Home\Index.spark" />

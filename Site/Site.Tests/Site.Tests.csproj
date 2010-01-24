@@ -103,11 +103,13 @@
   <ItemGroup>
     <Compile Include="base_test.cs" />
     <Compile Include="Controllers\Blog\blogcontroller_test.cs" />
+    <Compile Include="Controllers\Blog\when_creating_new_entry.cs" />
     <Compile Include="Controllers\controller_test.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\Blog\when_viewing_blogindex.cs" />
     <Compile Include="Models\BlogRepository\blogrepository_test.cs" />
     <Compile Include="Models\BlogRepository\when_creating_blogrepository.cs" />
+    <Compile Include="Models\BlogRepository\when_creating_new_blogentry.cs" />
     <Compile Include="Models\BlogRepository\when_retrieving_by_id.cs" />
     <Compile Include="Models\BlogRepository\when_retrieving_recent_posts.cs" />
     <Compile Include="Models\Blog\when_creating_blogentry.cs" />

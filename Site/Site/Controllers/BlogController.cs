@@ -11,35 +11,52 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Site.Model;
+using Site.Model.Entities;
 
 namespace Site.Controllers
 {
     public class BlogController : Controller
     {
 
-        private BlogEntryRepository _repository;
+        private BlogEntryRepository Repository { get; set; }
 
         public BlogController(BlogEntryRepository repository)
         {
-            _repository = repository;
+            Repository = repository;
         }
 
         public ActionResult Index()
         {
-            ViewData["entries"] = _repository.GetRecentEntries();
+            ViewData["entries"] = Repository.GetRecentEntries();
             return View();
         }
 
         public ActionResult Entry(int id)
         {
-            ViewData["entry"] = _repository.GetEntryById(id);
+            ViewData["entry"] = Repository.GetEntryById(id);
             return View();
         }
 
         public ActionResult Author(string name)
         {
-            ViewData["entries"] = _repository.GetAll().Where(e => e.Author == name);
+            ViewData["entries"] = Repository.GetAll().Where(e => e.Author == name);
             return View();
+        }
+
+
+        public ActionResult Create()
+        {
+            ViewData["entry"] = Repository.Create();
+            return View();
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Create(BlogEntry entry)
+        {
+            entry.PublicationDate = DateTime.Now;
+            entry.Author = "Craig";
+            Repository.Insert(entry);
+            return RedirectToAction("Entry", new {id = entry.Id});
         }
 
 
