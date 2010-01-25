@@ -29,6 +29,7 @@ Released   : 20091106
 			<li><a href="#">Links</a></li>
 			<li><a href="#">Contact</a></li>
 		</ul>
+		
 	</div>
 	<!-- end #menu -->
 	<div id="header">
@@ -56,15 +57,16 @@ Released   : 20091106
 						</div>
 					</form>
 					</div>-->
-					<div id="logon">
+					<h3>
 					<test if="Request.IsAuthenticated">
-						Welcome <b>${ Html.Encode("Craig") }</b>!
+						Welcome <b>${Html.Encode("Craig")}</b>! <span id="logoff">${Html.ActionLink("Log Off", "LogOff", "Account")}</span>
 					<else/>
 						${Html.ActionLink("Log On", "LogOn", "Account")}
 					</test>
-					</div>
+					</h3>
 					<div style="clear: both;">&nbsp;</div>
 				</li>
+				
 				<li>
 					<h2>Welcome!</h2>
 					<p>Here you'll find a family blog of sorts.</p>

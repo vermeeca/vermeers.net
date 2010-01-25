@@ -113,6 +113,21 @@ a:hover {
 	border-bottom: 4px solid #FFFFFF;
 }
 
+#logon {
+	float: right;
+	width: 280px;
+	height: 30px;
+	padding: 20px 0px 0px 0px;
+	background: #E2E2E2;
+	border-bottom: 4px solid #FFFFFF;
+}
+
+#logon a
+{
+	padding: 0px 0px 0px 50px;
+	float: left;
+}
+
 #search form {
 	height: 41px;
 	margin: 0;
@@ -332,6 +347,19 @@ a:hover {
 	padding-left: 30px;
 	letter-spacing: -.5px;
 	font-size: 1.8em;
+}
+
+#sidebar h3 {
+	height: 38px;
+	padding-left: 30px;
+	letter-spacing: -.5px;
+	font-size: 1.4em;
+}
+
+#logoff
+{
+	float:right;
+	padding-right: 30px
 }
 
 #sidebar p {
