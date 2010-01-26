@@ -33,6 +33,7 @@ namespace Site.Model
         
         }
 
+        
         public void EnsureDatabaseCreated()
         {
             using(var session = OpenSession())

@@ -152,6 +152,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Blog\Author.spark" />
+    <None Include="Views\Blog\Edit.spark" />
+    <None Include="Views\Blog\_EditEntry.spark" />
     <None Include="Views\Blog\Create.spark" />
     <None Include="Views\Blog\Entry.spark" />
     <None Include="Views\Blog\Index.spark" />

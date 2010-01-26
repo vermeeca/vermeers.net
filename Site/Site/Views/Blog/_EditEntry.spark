@@ -1,0 +1,15 @@
+﻿<viewdata entry="Site.Model.Entities.BlogEntry"/>
+<div class="newpost">
+	# Html.BeginForm();
+    ${Html.Hidden("Id", entry.Id)}
+    ${Html.Hidden("Author", Context.User.Identity.Name)}
+    ${Html.Hidden("PublicationDate", DateTime.Now)}
+	<p>Title</p>
+	<p class="title">${Html.TextBox("Title", entry.Title)}</p>
+	<p>Content</p>
+	<div>
+	${Html.TextArea("Content", entry.Content)}
+	</div>
+	<input type="submit" value="Submit"/>
+	# Html.EndForm();
+</div>

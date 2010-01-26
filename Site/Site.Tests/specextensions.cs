@@ -70,6 +70,11 @@ namespace Site.Tests
             Assert.IsInstanceOfType(expected, actual);
         }
 
+        public static void ShouldBeOfType<T>(this object actual)
+        {
+            Assert.IsInstanceOf<T>(actual);
+        }
+
         public static void ShouldNotBeOfType(this object actual, Type expected)
         {
             Assert.IsNotInstanceOfType(expected, actual);

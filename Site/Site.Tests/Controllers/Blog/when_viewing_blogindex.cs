@@ -11,7 +11,6 @@ namespace Site.Tests.Controllers.Blog
 {
     public class when_viewing_blogindex : blogcontroller_test
     {
-        protected ActionResult result;
 
         protected override void because()
         {

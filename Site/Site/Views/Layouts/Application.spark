@@ -59,7 +59,7 @@ Released   : 20091106
 					</div>-->
 					<h3>
 					<test if="Request.IsAuthenticated">
-						Welcome <b>${Html.Encode("Craig")}</b>! <span id="logoff">${Html.ActionLink("Log Off", "LogOff", "Account")}</span>
+						Welcome <b>${Html.Encode(Context.User.Identity.Name)}</b>! <span id="logoff">${Html.ActionLink("Log Off", "LogOff", "Account")}</span>
 					<else/>
 						${Html.ActionLink("Log On", "LogOn", "Account")}
 					</test>

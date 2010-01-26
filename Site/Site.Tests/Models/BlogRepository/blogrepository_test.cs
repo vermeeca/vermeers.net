@@ -32,7 +32,7 @@ namespace Site.Tests.Models.BlogRepository
             });
             ExpectedEntries.Add(new BlogEntry { Author = "Blah", Content = "Content", PublicationDate = DateTime.Now, Title = "Title" });
 
-            ExpectedEntries.ForEach(b => repo.Insert(b));
+            ExpectedEntries.ForEach(b => repo.Save(b));
         }
 
     }

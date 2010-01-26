@@ -10,7 +10,6 @@ namespace Site.Tests.Controllers.Blog
 {
     public class when_creating_new_entry : blogcontroller_test
     {
-        private ActionResult result;
 
         protected override void because()
         {

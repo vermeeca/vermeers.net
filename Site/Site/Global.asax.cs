@@ -73,7 +73,10 @@ namespace Site
                 types.Where(t => t.Name.EndsWith("Repository")).ToList().ForEach(b => Bind(b).ToSelf());
 
                 //ISession maps to the OpenSession() method on the configuration class
-                Bind<ISession>().ToMethod(c => c.Kernel.Get<Site.Model.Configuration>().OpenSession());
+                Bind<ISession>().ToMethod(c => c.Kernel.Get<Site.Model.Configuration>().OpenSession()).OnDeactivation(s => {
+                                                                                                                               s.Flush();
+                                                                                                                               s.Close();
+                });
 
                 
 

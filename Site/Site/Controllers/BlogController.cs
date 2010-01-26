@@ -50,15 +50,31 @@ namespace Site.Controllers
             return View();
         }
 
+
+
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Create(BlogEntry entry)
         {
             entry.PublicationDate = DateTime.Now;
             entry.Author = "Craig";
-            Repository.Insert(entry);
+            Repository.Save(entry);
             return RedirectToAction("Entry", new {id = entry.Id});
         }
 
 
+        public ActionResult Edit(int id)
+        {
+            ViewData["entry"] = Repository.GetEntryById(id);
+            return View();
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Edit(int id, FormCollection formData)
+        {
+            var entry = Repository.GetEntryById(id);
+            this.UpdateModel(entry);
+            
+            return RedirectToAction("Entry", new {id = entry.Id});
+        }
     }
 }

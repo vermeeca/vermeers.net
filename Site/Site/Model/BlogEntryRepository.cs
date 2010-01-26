@@ -34,7 +34,7 @@ namespace Site.Model
             return new BlogEntry();
         }
 
-        public void Insert(BlogEntry entry)
+        public void Save(BlogEntry entry)
         {
             Session.Save(entry);
         }
