@@ -22,13 +22,31 @@ namespace Site
     {
         static readonly Application _application = new Application();
 
+        public Global()
+        {
+            this.BeginRequest += (o, e) => CurrentSession = Kernel.Get<Site.Model.Configuration>().OpenSession();
+            this.EndRequest += (o, e) =>
+            {
+                if (CurrentSession != null)
+                {
+                    CurrentSession.Dispose();
+                }
+            };
+        }
 
+        public static ISession CurrentSession
+        {
+            get { return (ISession)HttpContext.Current.Items["current.session"]; }
+            set { HttpContext.Current.Items["current.session"] = value; }
+        }
 
         protected override void OnApplicationStarted()
         {
             _application.RegisterViewEngines(ViewEngines.Engines);
             _application.RegisterRoutes(RouteTable.Routes);
             RegisterAllControllersIn(Assembly.GetExecutingAssembly());
+
+            
         }
 
 
@@ -73,14 +91,8 @@ namespace Site
                 types.Where(t => t.Name.EndsWith("Repository")).ToList().ForEach(b => Bind(b).ToSelf());
 
                 //ISession maps to the OpenSession() method on the configuration class
-                Bind<ISession>().ToMethod(c => c.Kernel.Get<Site.Model.Configuration>().OpenSession()).OnDeactivation(s => {
-                                                                                                                               s.Flush();
-                                                                                                                               s.Close();
-                });
+                Bind<ISession>().ToMethod(c => Global.CurrentSession);              
 
-                
-
-               
             }
         }
 
