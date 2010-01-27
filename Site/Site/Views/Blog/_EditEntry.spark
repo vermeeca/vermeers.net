@@ -11,5 +11,6 @@
 	${Html.TextArea("Content", entry.Content)}
 	</div>
 	<input type="submit" value="Submit"/>
+	<input type="button" name="Cancel" value="Cancel" onclick="window.location = '${Url.Action('Index')}' " />
 	# Html.EndForm();
 </div>

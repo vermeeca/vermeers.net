@@ -122,6 +122,7 @@
     <Compile Include="Utilities\SQLiteRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\Edit-icon.png" />
     <Content Include="Content\images\img01.gif" />
     <Content Include="Content\images\img02.gif" />
     <Content Include="Content\images\img03.gif" />
@@ -130,6 +131,7 @@
     <Content Include="Content\images\img06.gif" />
     <Content Include="Content\images\img07.gif" />
     <Content Include="Content\images\img08.gif" />
+    <Content Include="Content\images\IMG_0861.JPG" />
     <Content Include="Content\images\spacer.gif" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />

@@ -1,11 +1,12 @@
 ﻿<div class="post">
   <h2 class="title">
-    ${Html.ActionLink(entry.Title, "Entry", new{id=entry.Id})}
+    ${Html.ActionLink(entry.Title, "Entry", new { id = entry.Id })}
+    <span if="Context.User.Identity.IsAuthenticated" class="editLink"><a href="${Url.Action('Edit', new { id = entry.Id })}"><img src="/Content/images/Edit-icon.png" /></a></span>
   </h2>
   <p class="meta">
     <span class="date">${entry.PublicationDate}</span>
     <span class="posted">
-      Posted by ${Html.ActionLink(entry.Author, "Author", new{name=entry.Author})}
+      Posted by ${Html.ActionLink(entry.Author, "Author", new { name = entry.Author })}
     </span>
   </p>
   <div style="clear: both;">&nbsp;</div>
