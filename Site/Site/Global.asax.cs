@@ -29,9 +29,10 @@ namespace Site
             {
                 if (CurrentSession != null)
                 {
+                    CurrentSession.Flush();
                     CurrentSession.Dispose();
                 }
-            };
+            };            
         }
 
         public static ISession CurrentSession

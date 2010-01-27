@@ -114,6 +114,7 @@
     <Compile Include="Controllers\Blog\when_editing_blogentry.cs" />
     <Compile Include="Models\BlogRepository\when_retrieving_by_id.cs" />
     <Compile Include="Models\BlogRepository\when_retrieving_recent_posts.cs" />
+    <Compile Include="Models\BlogRepository\when_updating_blogentry.cs" />
     <Compile Include="Models\Blog\when_creating_blogentry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\TestRegistrationConventions.cs" />

@@ -18,7 +18,7 @@ namespace Site.Model
         {
             get
             {
-                return SQLiteConfiguration.Standard.UsingFile("site.db");
+                return SQLiteConfiguration.Standard.UsingFile("site.db").ShowSql();
             }
         }
 
