@@ -1,4 +1,7 @@
 ﻿<viewdata entry="Site.Model.Entities.BlogEntry"/>
+<!-- Load TinyMCE -->
+<script type="text/javascript" src="~/Scripts/tiny_mce/jquery.tinymce.js"></script>
+
 <div class="newpost">
 	# Html.BeginForm();
     ${Html.Hidden("Id", entry.Id)}
@@ -8,7 +11,7 @@
 	<p class="title">${Html.TextBox("Title", entry.Title)}</p>
 	<p>Content</p>
 	<div>
-	${Html.TextArea("Content", entry.Content)}
+	${Html.TextArea("Content", entry.Content, new{class="tinymce", id="postbody"})}
 	</div>
 	<input type="submit" value="Submit"/>
 	<input type="button" name="Cancel" value="Cancel" onclick="window.location = '${Url.Action('Index')}' " />
