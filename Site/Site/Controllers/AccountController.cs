@@ -82,6 +82,7 @@ namespace Nerddinner.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
         public ActionResult Register()
         {
 
@@ -90,6 +91,7 @@ namespace Nerddinner.Controllers
             return View();
         }
 
+        [Authorize]
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Register(string userName, string email, string password, string confirmPassword)
         {

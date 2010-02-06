@@ -1,5 +1,5 @@
 ﻿<viewdata entries="System.Collections.Generic.IEnumerable[[Site.Model.Entities.BlogEntry]]"/>
-
+<span if="Context.User.Identity.IsAuthenticated" class="createLink"><a href="${Url.Action('Create')}"><img src="/Content/images/new-document-icon.png" /></a></span>
 <for each="var entry in entries">
   <Entry />
 </for>

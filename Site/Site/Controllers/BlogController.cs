@@ -43,7 +43,7 @@ namespace Site.Controllers
             return View();
         }
 
-
+        [Authorize]
         public ActionResult Create()
         {
             ViewData["entry"] = Repository.Create();
@@ -52,7 +52,9 @@ namespace Site.Controllers
 
 
 
+        [Authorize]
         [AcceptVerbs(HttpVerbs.Post)]
+        [ValidateInput(false)]
         public ActionResult Create(BlogEntry entry)
         {
             entry.PublicationDate = DateTime.Now;
@@ -61,13 +63,14 @@ namespace Site.Controllers
             return RedirectToAction("Entry", new {id = entry.Id});
         }
 
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             ViewData["entry"] = Repository.GetEntryById(id);
             return View();
         }
 
+        [Authorize]
         [AcceptVerbs(HttpVerbs.Post)]
         [ValidateInput(false)]
         public ActionResult Edit(int id, FormCollection formData)
