@@ -145,6 +145,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App_Data\Provider.db" />
     <None Include="Views\Blog\Author.spark" />
     <None Include="Views\Blog\Edit.spark" />
     <None Include="Views\Blog\_EditEntry.spark" />
@@ -156,7 +157,6 @@
     <None Include="Views\Shared\_global.spark" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

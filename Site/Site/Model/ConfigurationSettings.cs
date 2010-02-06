@@ -9,6 +9,12 @@ namespace Site.Model
     public class ConfigurationSettings : IConfigurationSettings
     {
 
+        private IPersistenceConfigurer _persistence = null;
+
+        public ConfigurationSettings(IPersistenceConfigurer persistence)
+        {
+            _persistence = persistence;
+        }
 
         public static readonly AutoPersistenceModel Map = AutoMap.AssemblyOf<BlogEntry>().Where(t => t.Namespace.Contains("Entities"));
 
@@ -18,7 +24,7 @@ namespace Site.Model
         {
             get
             {
-                return SQLiteConfiguration.Standard.UsingFile("site.db").ShowSql();
+                return _persistence;
             }
         }
 

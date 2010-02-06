@@ -10,6 +10,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Xml.Linq;
+using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using Ninject;
 using Ninject.Modules;
@@ -92,7 +93,9 @@ namespace Site
                 types.Where(t => t.Name.EndsWith("Repository")).ToList().ForEach(b => Bind(b).ToSelf());
 
                 //ISession maps to the OpenSession() method on the configuration class
-                Bind<ISession>().ToMethod(c => Global.CurrentSession);              
+                Bind<ISession>().ToMethod(c => Global.CurrentSession);
+
+                Bind<IPersistenceConfigurer>().ToMethod(p => SQLiteConfiguration.Standard.UsingFile(HttpContext.Current.Request.MapPath(@"~/App_Data/Site.db")));
 
             }
         }
