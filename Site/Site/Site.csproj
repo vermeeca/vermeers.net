@@ -118,6 +118,8 @@
     <Compile Include="Model\ConfigurationSettings.cs" />
     <Compile Include="Model\RepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationExtensions.asax.cs" />
+    <Compile Include="SiteModule.cs" />
     <Compile Include="Utilities\SQLiteMembershipProvider.cs" />
     <Compile Include="Utilities\SQLiteRoleProvider.cs" />
   </ItemGroup>

@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Configuration;
 using System.Data;
-using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
@@ -69,50 +68,7 @@ namespace Site
                 context.RewritePath("~/Home");
             }
         }
-
-        public class ServiceModule : NinjectModule
-        {
-            public override void Load()
-            {
-
-                //Configuration
-                Bind<Site.Model.Configuration>().ToSelf().InRequestScope().OnActivation(c => c.Configure());
-                
-                var types = Assembly.GetExecutingAssembly().GetTypes();
-                            
-                //default conventions (IMyService binds to MyService)
-                var bindings = (from t1 in types
-                               from t2 in types 
-                               where t1.IsImplementationOf(t2)
-                               select new {Implementation = t1, Service = t2})
-                               .ToList();
-
-                bindings.ForEach(b => Bind(b.Service).To(b.Implementation));
-
-                //all repositories
-                types.Where(t => t.Name.EndsWith("Repository")).ToList().ForEach(b => Bind(b).ToSelf());
-
-                //ISession maps to the OpenSession() method on the configuration class
-                Bind<ISession>().ToMethod(c => Global.CurrentSession);
-
-                Bind<IPersistenceConfigurer>().ToMethod(p => SQLiteConfiguration.Standard.UsingFile(HttpContext.Current.Request.MapPath(@"~/App_Data/Site.db")));
-
-            }
-        }
-
+    
         
-        
-
-        
-    }
-
-    internal static class RegistrationExtensions
-    {
-        public static bool IsImplementationOf(this Type implementation, Type service)
-        {
-            return 
-                string.Format("I{0}", implementation.Name).Equals(service.Name)
-                && implementation.GetInterfaces().Contains(service);
-        }       
     }
 }

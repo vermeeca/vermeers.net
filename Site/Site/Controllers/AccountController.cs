@@ -28,8 +28,8 @@ namespace Nerddinner.Controllers
         // information.
         public AccountController(IFormsAuthentication formsAuth, IMembershipService service)
         {
-            FormsAuth = formsAuth ?? new FormsAuthenticationService();
-            MembershipService = service ?? new AccountMembershipService();
+            FormsAuth = formsAuth;
+            MembershipService = service;
         }
 
         
@@ -323,7 +323,7 @@ namespace Nerddinner.Controllers
 
         public AccountMembershipService(MembershipProvider provider)
         {
-            _provider = provider ?? Membership.Provider;
+            _provider = provider;
         }
 
         public int MinPasswordLength
