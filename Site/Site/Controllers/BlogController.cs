@@ -69,6 +69,7 @@ namespace Site.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
+        [ValidateInput(false)]
         public ActionResult Edit(int id, FormCollection formData)
         {
             var entry = Repository.GetEntryById(id);

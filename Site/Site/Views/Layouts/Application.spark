@@ -29,10 +29,9 @@ Released   : 20091106
 		<ul>
 			<li class="current_page_item">${Html.ActionLink("Home", "Index", "Home")}</li>
 			<li>${Html.ActionLink("Blog", "Index", "Blog")}</li>
-			<li><a href="#">Photos</a></li>
+			<!--<li><a href="#">Photos</a></li>-->
 			<li><a href="#">About</a></li>
-			<li><a href="#">Links</a></li>
-			<li><a href="#">Contact</a></li>
+			<!--<li><a href="#">Contact</a></li>-->
 		</ul>
 		
 	</div>
