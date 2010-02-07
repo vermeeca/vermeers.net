@@ -76,9 +76,10 @@ namespace Site.Controllers
         public ActionResult Edit(int id, FormCollection formData)
         {
             var entry = Repository.GetEntryById(id);
-            this.UpdateModel(entry);
+            this.UpdateModel(entry, formData.ToValueProvider());
             
             return RedirectToAction("Entry", new {id = entry.Id});
         }
+
     }
 }

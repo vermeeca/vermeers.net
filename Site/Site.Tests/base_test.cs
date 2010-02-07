@@ -53,7 +53,7 @@ namespace Site.Tests
             session = config.OpenSession();
 
             //just get a new session each time
-            configSettings.Stub(s => s.CurrentSession).Return(config.OpenSession());
+            configSettings.Stub(s => s.CurrentSession).Return(session);
 
             new SchemaExport(config.FluentConfiguration.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);
 
