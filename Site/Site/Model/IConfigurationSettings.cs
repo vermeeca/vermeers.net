@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Web.Security;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using NHibernate;
 
 namespace Site.Model
 {
@@ -12,6 +14,8 @@ namespace Site.Model
     {
         IPersistenceConfigurer PersistenceConfig { get; }
         AutoPersistenceModel Mapping { get; }
+        MembershipProvider Membership { get; }
+        ISession CurrentSession { get; }
 
     }
 }

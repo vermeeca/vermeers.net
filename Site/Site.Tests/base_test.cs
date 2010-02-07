@@ -2,6 +2,7 @@
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+using Ninject;
 using NUnit.Framework;
 using Rhino.Mocks;
 using Site.Model;
@@ -18,6 +19,7 @@ namespace Site.Tests
         protected IConfigurationSettings configSettings;
         protected Configuration config;
         protected ISession session;
+        protected IKernel kernel;
 
         [TestFixtureSetUp]
         public void TestFixtureSetup()
@@ -26,20 +28,33 @@ namespace Site.Tests
             because();
         }
 
+
         /// <summary>
         /// Set up infrastructure.
         /// In AAA syntax, this is Arrange
         /// </summary>
         protected virtual void establish_context()
         {
+
             configSettings = MockRepository.GenerateStub<IConfigurationSettings>();
             //settings.Stub(s => s.PersistenceConfig).Return(SQLiteConfiguration.Standard.UsingFile("site.db"));
             configSettings.Stub(s => s.PersistenceConfig).Return(SQLiteConfiguration.Standard.InMemory());
             configSettings.Stub(s => s.Mapping).Return(ConfigurationSettings.Map);
+            //TODO: Fix
+            configSettings.Stub(s => s.Membership).Return(null);
+
+            kernel = new StandardKernel(new ServiceModule());
+            kernel.Unbind<IConfigurationSettings>();
+            kernel.Bind<IConfigurationSettings>().ToConstant(configSettings);
+
 
             config = new Configuration(configSettings).Configure();
 
             session = config.OpenSession();
+
+            //just get a new session each time
+            configSettings.Stub(s => s.CurrentSession).Return(config.OpenSession());
+
             new SchemaExport(config.FluentConfiguration.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);
 
         }
@@ -48,7 +63,9 @@ namespace Site.Tests
         /// This is why we the asserts are true.  
         /// In AAA syntax, this is the Act.
         /// </summary>
-        protected virtual void because() { }
+        protected virtual void because()
+        {
+        }
 
 
         /// <summary>
