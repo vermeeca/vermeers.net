@@ -18,7 +18,6 @@ namespace Site.Tests.Models.BlogRepository
             base.because();
             entry = repo.GetEntryById(ExpectedEntries[0].Id);
             entry.Content += "Edited";
-            session.Flush();
         }
 
         [Test]

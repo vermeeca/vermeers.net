@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Site.Controllers;
 using Site.Model;
 using Site.Model.Entities;
+using Ninject;
 
 namespace Site.Tests.Controllers.Blog
 {
@@ -19,7 +20,7 @@ namespace Site.Tests.Controllers.Blog
         protected override void establish_context()
         {
             base.establish_context();
-            repository = new BlogEntryRepository(session);
+            repository = kernel.Get<BlogEntryRepository>();
             controller = new BlogController(repository);
 
             expectedEntry = repository.Create();

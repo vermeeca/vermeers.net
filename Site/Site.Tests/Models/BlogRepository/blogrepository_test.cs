@@ -8,6 +8,7 @@ using NHibernate.Tool.hbm2ddl;
 using Rhino.Mocks;
 using Site.Model;
 using Site.Model.Entities;
+using Ninject;
 
 namespace Site.Tests.Models.BlogRepository
 {
@@ -21,7 +22,7 @@ namespace Site.Tests.Models.BlogRepository
         protected override void establish_context()
         {
             base.establish_context();
-            repo = new BlogEntryRepository(session);          
+            repo = kernel.Get<BlogEntryRepository>();
 
             ExpectedEntries.Add(new BlogEntry
             {

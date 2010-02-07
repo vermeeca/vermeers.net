@@ -17,8 +17,6 @@ namespace Site.Tests
     {
 
         protected IConfigurationSettings configSettings;
-        protected Configuration config;
-        protected ISession session;
         protected IKernel kernel;
 
         [TestFixtureSetUp]
@@ -47,15 +45,13 @@ namespace Site.Tests
             kernel.Unbind<IConfigurationSettings>();
             kernel.Bind<IConfigurationSettings>().ToConstant(configSettings);
 
-
-            config = new Configuration(configSettings).Configure();
-
-            session = config.OpenSession();
-
+            Configuration config = kernel.Get<Configuration>();
             //just get a new session each time
-            configSettings.Stub(s => s.CurrentSession).Return(session);
+            configSettings.Stub(s => s.CurrentSession).Return(config.OpenSession());
 
-            new SchemaExport(config.FluentConfiguration.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);
+            ISession session = configSettings.CurrentSession;
+
+            new SchemaExport(kernel.Get<Configuration>().FluentConfiguration.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);
 
         }
 

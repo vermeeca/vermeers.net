@@ -31,10 +31,6 @@ namespace Site.Tests.Models.BlogRepository
             entries = repo.GetRecentEntries();
         }
 
-        public override void after_last()
-        {
-            session.Close();
-        }
 
         [Test]
         public void should_have_at_least_one_entry()
