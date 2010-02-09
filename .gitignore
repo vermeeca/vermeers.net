@@ -10,3 +10,6 @@ _ReSharper.*
 *.cache
 ~$*
 *.db
+*.mdf
+*.ldf
+*.LDF

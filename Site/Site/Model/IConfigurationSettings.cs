@@ -8,14 +8,27 @@ using NHibernate;
 namespace Site.Model
 {
     /// <summary>
-    /// Describes the Fluent Nhibernate Config that the repositories should use
+    /// Holds configuration values for the application
     /// </summary>
     public interface IConfigurationSettings
     {
+        /// <summary>
+        /// The Fluent NHibernate persistence configuration
+        /// </summary>
         IPersistenceConfigurer PersistenceConfig { get; }
+        /// <summary>
+        /// The Fluent NHibernate Mapping
+        /// </summary>
         AutoPersistenceModel Mapping { get; }
+        /// <summary>
+        /// The ASP.Net Membership provider
+        /// </summary>
         MembershipProvider Membership { get; }
-        ISession CurrentSession { get; }
+
+        /// <summary>
+        /// Retrieves the current session
+        /// </summary>
+        ISession GetCurrentSession();
 
     }
 }

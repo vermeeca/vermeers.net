@@ -26,7 +26,7 @@ namespace Site.Model
         {
             get
             {
-                return SQLiteConfiguration.Standard.UsingFile(HttpContext.Current.Request.MapPath(@"~/App_Data/Site.db"));
+                return MsSqlConfiguration.MsSql2005.ConnectionString(b => b.FromConnectionStringWithKey("Local"));
             }
         }
 
@@ -40,9 +40,9 @@ namespace Site.Model
             get { return System.Web.Security.Membership.Provider; }
         }
 
-        public ISession CurrentSession
+        public ISession GetCurrentSession()
         {
-            get { return Global.CurrentSession; }
+            return Global.CurrentSession;
         }
     }
        

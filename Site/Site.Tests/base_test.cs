@@ -47,9 +47,9 @@ namespace Site.Tests
 
             Configuration config = kernel.Get<Configuration>();
             //just get a new session each time
-            configSettings.Stub(s => s.CurrentSession).Return(config.OpenSession());
+            configSettings.Stub(s => s.GetCurrentSession()).Return(config.OpenSession());
 
-            ISession session = configSettings.CurrentSession;
+            ISession session = configSettings.GetCurrentSession();
 
             new SchemaExport(kernel.Get<Configuration>().FluentConfiguration.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);
 

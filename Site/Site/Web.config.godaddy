@@ -23,7 +23,7 @@
 	</configSections>
 	<appSettings/>
 	<connectionStrings>
-		<add name="Local" connectionString="data source=.\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|site.mdf;User Instance=true" providerName="System.Data.SqlClient"/>
+		<add name="Local" connectionString="Data Source=vermeers.db.2483536.hostedresource.com; Initial Catalog=vermeers; User ID=vermeers; Password='Abcd.1234';" providerName="System.Data.SqlClient"/>
   </connectionStrings>
 	<system.web>
 		<!-- 

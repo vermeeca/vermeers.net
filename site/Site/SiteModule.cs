@@ -42,8 +42,8 @@ namespace Site
             //all repositories
             types.Where(t => t.Name.EndsWith("Repository")).ToList().ForEach(b => Bind(b).ToSelf());
 
-            //ISession maps to the OpenSession() method on the configuration class
-            Bind<ISession>().ToMethod(c => c.Kernel.Get<IConfigurationSettings>().CurrentSession);
+            //ISession maps to the GetCurrentSession() method on the configuration class
+            Bind<ISession>().ToMethod(c => c.Kernel.Get<IConfigurationSettings>().GetCurrentSession());
             
 
 
