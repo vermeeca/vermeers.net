@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
@@ -21,6 +22,7 @@ namespace Site
     public class Global : NinjectHttpApplication
     {
         static readonly Application _application = new Application();
+
 
         public Global()
         {

@@ -1,11 +1,12 @@
 <publishData>
   <publishTarget publishUrl="ftp://ftp.eatingrightnow.com/vermeers/blog2/">
-    <file relUrl="bin/log4net.dll" publishTime="08/28/2009 18:01:24" />
+    <file relUrl="bin/log4net.dll" publishTime="02/09/2010 18:14:04" />
     <file relUrl="bin/Spark.Web.Mvc.dll" publishTime="06/08/2009 22:31:18" />
-    <file relUrl="bin/Site.dll" publishTime="02/08/2010 22:12:11" />
-    <file relUrl="bin/NHibernate.dll" publishTime="01/09/2010 14:06:43" />
-    <file relUrl="bin/FluentNHibernate.dll" publishTime="01/09/2010 14:06:43" />
-    <file relUrl="bin/Site.pdb" publishTime="02/08/2010 22:12:11" />
+    <file relUrl="bin/Castle.DynamicProxy.dll" publishTime="02/11/2010 22:23:57" />
+    <file relUrl="bin/Site.dll" publishTime="02/11/2010 22:25:27" />
+    <file relUrl="bin/NHibernate.dll" publishTime="02/09/2010 22:20:16" />
+    <file relUrl="bin/FluentNHibernate.dll" publishTime="02/09/2010 22:20:16" />
+    <file relUrl="bin/Site.pdb" publishTime="02/11/2010 22:25:27" />
     <file relUrl="Content/images/spacer.gif" publishTime="11/05/2009 21:43:48" />
     <file relUrl="Content/images/img04.gif" publishTime="11/05/2009 21:45:46" />
     <file relUrl="Views/Account/ChangePasswordSuccess.spark" publishTime="01/24/2010 14:25:18" />
@@ -14,18 +15,17 @@
     <file relUrl="Content/images/img08.gif" publishTime="11/07/2009 06:58:52" />
     <file relUrl="Views/Web.config" publishTime="09/30/2009 21:49:13" />
     <file relUrl="bin/System.Web.Mvc.xml" publishTime="02/27/2009 15:00:18" />
-    <file relUrl="bin/NHibernate.Linq.dll" publishTime="01/09/2010 14:06:43" />
-    <file relUrl="bin/Castle.DynamicProxy2.dll" publishTime="08/28/2009 18:01:24" />
-    <file relUrl="bin/NHibernate.ByteCode.Castle.dll" publishTime="01/09/2010 14:06:43" />
-    <file relUrl="bin/Antlr3.Runtime.dll" publishTime="08/28/2009 18:01:24" />
+    <file relUrl="bin/NHibernate.Linq.dll" publishTime="02/09/2010 22:20:16" />
+    <file relUrl="bin/NHibernate.ByteCode.Castle.dll" publishTime="02/11/2010 21:47:29" />
+    <file relUrl="bin/Antlr3.Runtime.dll" publishTime="02/09/2010 18:14:00" />
     <file relUrl="bin/Ninject.dll" publishTime="01/09/2010 14:06:43" />
-    <file relUrl="bin/Castle.Core.dll" publishTime="08/28/2009 18:01:24" />
+    <file relUrl="bin/Castle.Core.dll" publishTime="02/11/2010 21:38:36" />
     <file relUrl="bin/System.Web.Abstractions.dll" publishTime="07/29/2008 23:40:48" />
     <file relUrl="Web.config" publishTime="02/08/2010 21:12:37" />
     <file relUrl="Views/Account/ChangePassword.spark" publishTime="01/24/2010 21:40:58" />
     <file relUrl="Content/images/img02.gif" publishTime="11/05/2009 21:47:16" />
     <file relUrl="Content/images/img06.gif" publishTime="11/06/2009 05:29:38" />
-    <file relUrl="bin/Iesi.Collections.dll" publishTime="01/09/2010 14:06:43" />
+    <file relUrl="bin/Iesi.Collections.dll" publishTime="02/09/2010 22:20:16" />
     <file relUrl="Content/images/Edit-icon.png" publishTime="01/26/2010 21:55:00" />
     <file relUrl="bin/System.Web.Extensions.dll" publishTime="12/05/2008 19:55:30" />
     <file relUrl="Content/images/IMG_0861.JPG" publishTime="01/24/2010 13:55:40" />

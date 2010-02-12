@@ -18,7 +18,9 @@ namespace Site.Model
 
         }
 
-        public static readonly AutoPersistenceModel Map = AutoMap.AssemblyOf<BlogEntry>().Where(t => t.Namespace.Contains("Entities"));
+        //public static readonly AutoPersistenceModel Map = AutoMap.AssemblyOf<BlogEntry>().Where(t => t.Namespace.Contains("Entities")).Setup(m=>m.FindIdentity = p=>p.Name == "Id");
+        public static readonly AutoPersistenceModel Map =
+            AutoMap.AssemblyOf<BlogEntry>().Where(t => t.Namespace.Contains("Entities"));
 
         private IPersistenceConfigurer _persistenceConfig;
 

@@ -20,10 +20,12 @@ namespace Site.Model
 
         public Configuration Configure()
         {
-
+            NHibernate.Cfg.Environment.UseReflectionOptimizer = false;
             FluentConfiguration = Fluently.Configure()
                 .Database(_settings.PersistenceConfig)
                 .Mappings(m => m.AutoMappings.Add(_settings.Mapping));
+
+              
 
             
             _sessionFactory = FluentConfiguration.BuildSessionFactory();
@@ -36,6 +38,7 @@ namespace Site.Model
         
         public void EnsureDatabaseCreated()
         {
+
             using(var session = OpenSession())
             {
                 new SchemaExport(FluentConfiguration.BuildConfiguration()).Execute(true, true, false, session.Connection, Console.Out);
