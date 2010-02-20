@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -12,6 +13,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using Spark;
 using Spark.Web.Mvc;
 
 namespace Site
@@ -34,7 +36,15 @@ namespace Site
         {
             if (engines == null) throw new ArgumentNullException("engines");
 
-            SparkEngineStarter.RegisterViewEngine(engines);
+            //SparkEngineStarter.RegisterViewEngine(engines);
+
+            var factory = SparkEngineStarter.CreateViewEngine() as SparkViewFactory;
+            factory.Engine.LoadBatchCompilation(Assembly.Load("Site.Views"));
+
+            engines.Add(factory);
+            
+
+            
         }
     }
 }

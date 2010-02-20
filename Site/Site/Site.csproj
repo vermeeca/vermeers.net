@@ -65,6 +65,7 @@
       <HintPath>..\..\lib\Spark.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -72,6 +73,7 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Web.Abstractions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
       <Private>True</Private>
@@ -111,6 +113,12 @@
     <Compile Include="Model\IConfigurationSettings.cs" />
     <Compile Include="Model\ConfigurationSettings.cs" />
     <Compile Include="Model\RepositoryBase.cs" />
+    <Compile Include="PrecompileViewInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PrecompileViewInstaller.Designer.cs">
+      <DependentUpon>PrecompileViewInstaller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationExtensions.asax.cs" />
     <Compile Include="SiteModule.cs" />
@@ -156,6 +164,12 @@
     <None Include="Views\Shared\_global.spark" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="PrecompileViewInstaller.resx">
+      <DependentUpon>PrecompileViewInstaller.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -173,7 +187,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>58668</DevelopmentServerPort>
+          <DevelopmentServerPort>59012</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
@@ -183,4 +197,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>%25systemroot%25\Microsoft.NET\Framework\v2.0.50727\installutil "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

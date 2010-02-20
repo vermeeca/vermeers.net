@@ -1,4 +1,7 @@
-﻿<use namespace="System.Collections.Generic"/>
+﻿<use assembly="System.Web.Routing"/>
+<use assembly="System.Web.Abstractions"/>
+
+<use namespace="System.Collections.Generic"/>
 <use namespace="System.Web.Mvc.Html"/>
 <use namespace="System"/>
 
