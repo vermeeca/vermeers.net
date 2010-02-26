@@ -81,5 +81,14 @@ namespace Site.Controllers
             return RedirectToAction("Entry", new {id = entry.Id});
         }
 
+        public ActionResult Rss()
+        {
+            var entries = Repository.GetRecentEntries();
+            return null;
+            
+        }
+
+
+
     }
 }
