@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ControllerExtensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
