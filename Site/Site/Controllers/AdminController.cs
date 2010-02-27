@@ -21,13 +21,14 @@ namespace Site.Controllers
         }
 
 
+        [Authorize]
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         [Authorize]
-        public ActionResult BuildDatabase()
+        public ActionResult ReBuildDatabase()
         {
             Config.EnsureDatabaseCreated();
             return RedirectToAction("Index", "Home");
