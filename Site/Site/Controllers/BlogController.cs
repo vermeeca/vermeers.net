@@ -86,7 +86,8 @@ namespace Site.Controllers
         public ActionResult Feed()
         {
             var entries = Repository.GetRecentEntries().ToList();
-            var feed = new SyndicationFeed((from e in entries select new BlogEntryToRssConverter(e).ToRssItem()).ToList());
+            var feed = new SyndicationFeed("Vermeers.net", "Vermeers.net", new Uri("http://www.vermeers.net"), (from e in entries select new BlogEntryToRssConverter(e).ToRssItem()).ToList());
+
             return this.Rss(feed);
             
         }
