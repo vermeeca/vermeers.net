@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Text;
+using System.Xml;
 using NUnit.Framework;
 using Site.Model.Entities;
 using Site.Rss;
@@ -33,19 +35,24 @@ namespace Site.Tests.Rss
         [Test]
         public void item_title_should_match_entry_title()
         {
-            item.Title.ShouldEqual(entry.Title);
+            item.Title.Text.ShouldEqual(entry.Title);
         }
 
         [Test]
         public void item_content_should_match_entry_content()
         {
-            item.Content.ShouldEqual(entry.Content);
+            var w = new StringWriter();
+            using(var writer = XmlWriter.Create(w))
+            {
+                item.Content.WriteTo(writer, "root", string.Empty);
+            }
+            w.ToString().ShouldEqual(string.Format("<?xml version=\"1.0\" encoding=\"utf-16\"?><root type=\"text\">{0}</root>", entry.Content));
         }
 
         [Test]
         public void item_date_should_match_entry_date()
         {
-            item.PublishDate.ShouldEqual(entry.PublicationDate);
+            item.PublishDate.DateTime.ShouldEqual(entry.PublicationDate);
         }
     }
 }

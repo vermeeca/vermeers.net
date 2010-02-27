@@ -2,6 +2,7 @@
 using System.Data;
 using System.Configuration;
 using System.Linq;
+using System.ServiceModel.Syndication;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -12,6 +13,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Site.Model;
 using Site.Model.Entities;
+using Site.Rss;
 
 namespace Site.Controllers
 {
@@ -81,10 +83,11 @@ namespace Site.Controllers
             return RedirectToAction("Entry", new {id = entry.Id});
         }
 
-        public ActionResult Rss()
+        public ActionResult Feed()
         {
-            var entries = Repository.GetRecentEntries();
-            return null;
+            var entries = Repository.GetRecentEntries().ToList();
+            var feed = new SyndicationFeed((from e in entries select new BlogEntryToRssConverter(e).ToRssItem()).ToList());
+            return this.Rss(feed);
             
         }
 

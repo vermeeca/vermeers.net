@@ -15,7 +15,9 @@ namespace Site.Rss
 
         public SyndicationItem ToRssItem()
         {
-            return new SyndicationItem(_entry.Title, _entry.Content, null, _entry.Id.ToString(), _entry.PublicationDate);
+            var item = new SyndicationItem(_entry.Title, _entry.Content, null, _entry.Id.ToString(), _entry.PublicationDate);
+            item.PublishDate = _entry.PublicationDate;
+            return item;
         }
     }
 }
